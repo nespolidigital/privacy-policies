@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BandFlow — Política de Privacidade e Termos de Uso</title>
+<style>
+  :root{
+    --bg:#09090b;
+    --panel:#0f0f12;
+    --border:#27272a;
+    --text-dim:#a1a1aa;
+    --text-soft:#d4d4d8;
+    --text:#fafafa;
+    --accent:#3b82f6;
+    --accent-deep:#2563eb;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text-dim);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.65;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:48px 24px 96px;}
+  header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:40px;flex-wrap:wrap;}
+  .brand h1{
+    font-size:28px;font-weight:900;letter-spacing:-0.02em;color:var(--text);
+    margin:0;text-transform:uppercase;
+  }
+  .brand .bar{width:64px;height:6px;background:var(--accent-deep);margin-top:8px;border-radius:2px;}
+  .brand p{margin:10px 0 0;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#52525b;font-family:monospace;}
+  .controls{display:flex;gap:8px;flex-wrap:wrap;}
+  button.toggle{
+    background:var(--panel);border:1px solid var(--border);color:var(--text-dim);
+    font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+    padding:9px 14px;border-radius:10px;cursor:pointer;transition:all .15s ease;
+  }
+  button.toggle:hover{color:var(--text);border-color:#3f3f46;}
+  button.toggle.active{background:var(--accent-deep);color:#fff;border-color:var(--accent-deep);}
+  .doc-tabs{display:flex;gap:8px;margin-bottom:32px;border-bottom:1px solid var(--border);padding-bottom:20px;}
+  h2{color:var(--text);font-size:13px;text-transform:uppercase;letter-spacing:0.04em;font-weight:800;margin:32px 0 12px;}
+  section.block:first-of-type h2{margin-top:0;}
+  p{font-size:14.5px;color:var(--text-dim);margin:0 0 12px;}
+  ul{list-style:none;margin:0 0 4px;padding:0;}
+  li{display:flex;gap:10px;font-size:14.5px;margin-bottom:9px;}
+  li::before{content:"•";color:var(--accent);flex-shrink:0;}
+  strong{color:var(--text-soft);}
+  .callout{
+    background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.14);
+    padding:16px;border-radius:14px;margin-bottom:8px;
+  }
+  .callout .date{font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;font-family:monospace;margin:0 0 6px;font-weight:700;}
+  .note{
+    font-size:12.5px;background:var(--panel);border:1px solid var(--border);
+    padding:12px 14px;border-radius:12px;margin-top:4px;
+  }
+  footer{
+    margin-top:48px;padding-top:28px;border-top:1px solid var(--border);
+  }
+  footer h3{color:var(--text);font-size:13px;text-transform:uppercase;letter-spacing:0.04em;margin:0 0 12px;}
+  .contact-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px;}
+  @media(min-width:560px){.contact-grid{grid-template-columns:1fr 1fr;}}
+  .contact-item{
+    background:var(--panel);border:1px solid var(--border);border-radius:12px;
+    padding:12px 14px;font-size:12.5px;font-family:monospace;color:var(--text-soft);
+    display:flex;align-items:center;gap:8px;
+  }
+  a.contact-item{text-decoration:none;color:var(--accent);}
+  a.contact-item:hover{border-color:rgba(59,130,246,0.4);}
+  .lang-block{display:none;}
+  .lang-block.active{display:block;}
+  .tab-block{display:none;}
+  .tab-block.active{display:block;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">
+      <h1>BandFlow</h1>
+      <div class="bar"></div>
+      <p>Nespoli Digital</p>
+    </div>
+    <div class="controls">
+      <button class="toggle lang-btn active" data-lang="pt">PT</button>
+      <button class="toggle lang-btn" data-lang="en">EN</button>
+    </div>
+  </header>
+
+  <div class="doc-tabs">
+    <button class="toggle tab-btn active" data-tab="privacy">
+      <span class="lbl-pt">Política de Privacidade</span><span class="lbl-en" style="display:none">Privacy Policy</span>
+    </button>
+    <button class="toggle tab-btn" data-tab="terms">
+      <span class="lbl-pt">Termos de Uso</span><span class="lbl-en" style="display:none">Terms of Use</span>
+    </button>
+  </div>
+
+  <!-- PRIVACY - PT -->
+  <div class="tab-block active" data-tab-content="privacy">
+  <div class="lang-block active" data-lang-content="pt">
+
+    <div class="callout">
+      <p class="date">Última atualização: Junho de 2026</p>
+      <p>Esta Política de Privacidade descreve como o <strong>BandFlow</strong>, desenvolvido pela <strong>Nespoli Digital</strong>, coleta, usa e protege as informações dos usuários. Ao utilizar o aplicativo, você concorda com os termos desta política.</p>
+    </div>
+
+    <section class="block">
+      <h2>1. Informações que coletamos</h2>
+      <p>Coletamos as seguintes informações quando você usa o BandFlow:</p>
+      <ul>
+        <li><strong>Dados de conta:</strong> nome, endereço de e-mail e senha (armazenada com criptografia).</li>
+        <li><strong>Dados da banda:</strong> nome da banda, logo, redes sociais, release e rider técnico.</li>
+        <li><strong>Dados de membros:</strong> nome, e-mail, função, telefone, Instagram e dados bancários (PIX).</li>
+        <li><strong>Dados da agenda:</strong> eventos, shows, ensaios, locais e documentos anexados.</li>
+        <li><strong>Dados financeiros:</strong> transações, categorias e anexos de comprovantes.</li>
+        <li><strong>Mídia:</strong> fotos e vídeos carregados pelo usuário.</li>
+        <li><strong>Dados de uso:</strong> preferências de idioma e configurações do aplicativo.</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2>2. Como usamos suas informações</h2>
+      <p>Utilizamos suas informações para:</p>
+      <ul>
+        <li>Fornecer e melhorar os serviços do BandFlow</li>
+        <li>Gerenciar sua conta e assinatura</li>
+        <li>Enviar notificações sobre eventos e lembretes da sua agenda</li>
+        <li>Processar pagamentos de assinatura via Google Play Billing</li>
+        <li>Garantir a segurança e integridade dos dados</li>
+        <li>Cumprir obrigações legais</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2>3. Compartilhamento de dados</h2>
+      <p>Não vendemos seus dados. Compartilhamos informações apenas com:</p>
+      <ul>
+        <li><strong>Supabase:</strong> infraestrutura de banco de dados e armazenamento de arquivos.</li>
+        <li><strong>Google Play:</strong> processamento de pagamentos de assinatura.</li>
+        <li><strong>Google (Firebase/Analytics):</strong> análise de uso anônima (opcional).</li>
+      </ul>
+      <p class="note">Não compartilhamos dados pessoais com terceiros para fins de marketing.</p>
+    </section>
+
+    <section class="block">
+      <h2>4. Armazenamento e segurança</h2>
+      <p>Seus dados são armazenados com segurança nos servidores do Supabase, com criptografia em trânsito (HTTPS/TLS) e em repouso. O acesso aos dados é controlado por políticas de segurança em nível de linha (RLS), garantindo que cada usuário acesse apenas os dados das suas bandas.</p>
+    </section>
+
+    <section class="block">
+      <h2>5. Retenção de dados</h2>
+      <p>Seus dados são mantidos enquanto sua conta estiver ativa. Se você excluir sua banda ou conta, os dados são removidos permanentemente. Assinaturas expiradas têm os dados congelados por 7 dias (período de graça) e excluídos após 30 dias adicionais.</p>
+    </section>
+
+    <section class="block">
+      <h2>6. Seus direitos (LGPD)</h2>
+      <p>De acordo com a Lei Geral de Proteção de Dados (LGPD), você tem direito a:</p>
+      <ul>
+        <li>Acessar seus dados pessoais</li>
+        <li>Corrigir dados incompletos ou incorretos</li>
+        <li>Solicitar a exclusão dos seus dados</li>
+        <li>Exportar seus dados em formato legível</li>
+        <li>Revogar consentimento a qualquer momento</li>
+      </ul>
+      <p>Para exercer esses direitos, use as opções disponíveis em <strong>Configurações &gt; Privacidade</strong> no aplicativo ou entre em contato pelo e-mail abaixo.</p>
+    </section>
+
+    <section class="block">
+      <h2>7. Dados de crianças</h2>
+      <p>O BandFlow não é destinado a menores de 13 anos. Não coletamos intencionalmente dados de crianças. Se você acredita que uma criança forneceu dados sem consentimento, entre em contato conosco.</p>
+    </section>
+
+    <section class="block">
+      <h2>8. Notificações</h2>
+      <p>Com sua permissão, enviamos notificações sobre eventos da agenda. Você pode desativar as notificações a qualquer momento nas Configurações do aplicativo ou nas configurações do seu dispositivo.</p>
+    </section>
+
+    <section class="block">
+      <h2>9. Alterações nesta política</h2>
+      <p>Podemos atualizar esta política periodicamente. Notificaremos sobre mudanças significativas através do aplicativo ou por e-mail. O uso continuado do BandFlow após as alterações constitui aceitação da nova política.</p>
+    </section>
+
+  </div>
+
+  <!-- PRIVACY - EN -->
+  <div class="lang-block" data-lang-content="en">
+
+    <div class="callout">
+      <p class="date">Last updated: June 2026</p>
+      <p>This Privacy Policy describes how <strong>BandFlow</strong>, developed by <strong>Nespoli Digital</strong>, collects, uses, and protects users' information. By using the app, you agree to the terms of this policy.</p>
+    </div>
+
+    <section class="block">
+      <h2>1. Information We Collect</h2>
+      <p>We collect the following information when you use BandFlow:</p>
+      <ul>
+        <li><strong>Account data:</strong> name, email address, and encrypted password.</li>
+        <li><strong>Band data:</strong> band name, logo, social media links, bio details, and technical rider.</li>
+        <li><strong>Members data:</strong> name, email, role, phone, Instagram, and bank details (PIX).</li>
+        <li><strong>Schedule data:</strong> events, gigs, rehearsals, locations, and attached files.</li>
+        <li><strong>Financial data:</strong> transactions, categories, and payment receipts.</li>
+        <li><strong>Media files:</strong> photos and videos uploaded by the user.</li>
+        <li><strong>Usage details:</strong> preferred language and application settings.</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2>2. How We Use Your Information</h2>
+      <p>We use your information to:</p>
+      <ul>
+        <li>Provide and improve BandFlow services</li>
+        <li>Manage your account and subscription plans</li>
+        <li>Send schedule event alerts and reminders</li>
+        <li>Process subscription purchases via Google Play Billing</li>
+        <li>Ensure security and data infrastructure integrity</li>
+        <li>Comply with statutory and legal obligations</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2>3. Data Sharing</h2>
+      <p>We do not sell user data. We share information only with:</p>
+      <ul>
+        <li><strong>Supabase:</strong> database infrastructure and secure file cloud storage.</li>
+        <li><strong>Google Play:</strong> secure billing and checkout transaction workflows.</li>
+        <li><strong>Google (Firebase/Analytics):</strong> anonymous and optional usage telemetry.</li>
+      </ul>
+      <p class="note">We never share marketing lists or lease private personal details to third-party ad networks.</p>
+    </section>
+
+    <section class="block">
+      <h2>4. Storage and Security Standards</h2>
+      <p>Your data is stored securely on Supabase infrastructure, encrypted in transit (HTTPS/TLS) and at rest. Access is restricted through database-level Row Level Security (RLS) policies, ensuring each user only reaches data belonging to their own bands.</p>
+    </section>
+
+    <section class="block">
+      <h2>5. Data Retention</h2>
+      <p>Your data is kept for as long as your account remains active. If you delete your band or account, the data is permanently removed. Expired subscriptions are frozen for a 7-day grace period and deleted after an additional 30 days.</p>
+    </section>
+
+    <section class="block">
+      <h2>6. Your Rights (LGPD &amp; GDPR)</h2>
+      <p>Under LGPD and, where applicable, GDPR, you have the right to:</p>
+      <ul>
+        <li>Access your personal data</li>
+        <li>Correct incomplete or inaccurate data</li>
+        <li>Request deletion of your data</li>
+        <li>Export your data in a readable format</li>
+        <li>Withdraw consent at any time</li>
+      </ul>
+      <p>To exercise these rights, use the options available under <strong>Settings &gt; Privacy</strong> in the app, or contact us using the email below.</p>
+    </section>
+
+    <section class="block">
+      <h2>7. Children's Privacy</h2>
+      <p>BandFlow is not directed at children under 13. We do not knowingly collect data from children. If you believe a child has provided data without consent, please contact us.</p>
+    </section>
+
+    <section class="block">
+      <h2>8. Notifications</h2>
+      <p>With your permission, we send notifications about schedule events. You can disable notifications at any time in the app settings or your device settings.</p>
+    </section>
+
+    <section class="block">
+      <h2>9. Changes to This Policy</h2>
+      <p>We may update this policy periodically. We will notify you of significant changes through the app or by email. Continued use of BandFlow after changes constitutes acceptance of the new policy.</p>
+    </section>
+
+  </div>
+  </div>
+
+  <!-- TERMS - PT -->
+  <div class="tab-block" data-tab-content="terms">
+  <div class="lang-block active" data-lang-content="pt">
+
+    <div class="callout">
+      <p class="date">Última atualização: Junho de 2026</p>
+      <p>Bem-vindo ao <strong>BandFlow</strong>. Ao acessar ou usar nosso aplicativo de gerenciamento de bandas, você concorda em cumprir e estar vinculado a estes Termos de Uso.</p>
+    </div>
+
+    <section class="block">
+      <h2>1. Uso do Serviço</h2>
+      <p>O BandFlow fornece ferramentas para gerenciar ensaios, shows, repertórios, fotos, vídeos, integrantes e fluxo de caixa financeiro para grupos musicais. Você concorda em usar o serviço apenas para fins legítimos, profissionais ou amadores de sua banda.</p>
+    </section>
+
+    <section class="block">
+      <h2>2. Responsabilidade do Usuário</h2>
+      <p>Você é responsável por manter a confidencialidade de sua senha, credenciais de conta e por todas as atividades que ocorrem em sua conta. Não é permitido carregar conteúdo ofensivo, discriminatório ou que viole direitos autorais de terceiros.</p>
+    </section>
+
+    <section class="block">
+      <h2>3. Assinaturas e Faturamento</h2>
+      <p>Determinadas funcionalidades avançadas do BandFlow necessitam de assinatura ativa. Os termos de pagamento, renovação e reembolso são gerenciados e regidos pelos termos da plataforma de distribuição correspondente (Google Play Store ou Apple App Store).</p>
+    </section>
+
+    <section class="block">
+      <h2>4. Propriedade Intelectual</h2>
+      <p>Todo o software, design, logotipos e códigos subjacentes ao BandFlow são propriedade intelectual da Nespoli Digital. As mídias, releases e rider técnicos inseridos continuam sendo de propriedade de seus respectivos donos e bandas.</p>
+    </section>
+
+    <section class="block">
+      <h2>5. Limitação de Responsabilidade</h2>
+      <p>O BandFlow é disponibilizado "como está". Não garantimos que a plataforma estará totalmente livre de erros. Em hipótese alguma a Nespoli Digital será responsável por perda de receita, interrupções comerciais ou perdas indiretas operacionais decorrentes do uso da plataforma.</p>
+    </section>
+
+  </div>
+
+  <!-- TERMS - EN -->
+  <div class="lang-block" data-lang-content="en">
+
+    <div class="callout">
+      <p class="date">Last updated: June 2026</p>
+      <p>Welcome to <strong>BandFlow</strong>. By accessing or using our band management application, you agree to comply with and be bound by these Terms of Use.</p>
+    </div>
+
+    <section class="block">
+      <h2>1. Use of the Service</h2>
+      <p>BandFlow provides tools to manage rehearsals, gigs, repertoires, photos, videos, members, and financial cash flow for musical groups. You agree to use the service only for legitimate, professional, or amateur purposes related to your band.</p>
+    </section>
+
+    <section class="block">
+      <h2>2. User Responsibility</h2>
+      <p>You are responsible for keeping your password and account credentials confidential, and for all activity that occurs under your account. Uploading offensive, discriminatory content, or content that infringes third-party copyright, is not allowed.</p>
+    </section>
+
+    <section class="block">
+      <h2>3. Subscriptions and Billing</h2>
+      <p>Certain advanced BandFlow features require an active subscription. Payment, renewal, and refund terms are managed and governed by the terms of the corresponding distribution platform (Google Play Store or Apple App Store).</p>
+    </section>
+
+    <section class="block">
+      <h2>4. Intellectual Property</h2>
+      <p>All software, design, logos, and underlying code of BandFlow are the intellectual property of Nespoli Digital. Media, releases, and technical riders you upload remain the property of their respective owners and bands.</p>
+    </section>
+
+    <section class="block">
+      <h2>5. Limitation of Liability</h2>
+      <p>BandFlow is provided "as is". We do not guarantee the platform will be entirely free of errors. Under no circumstances shall Nespoli Digital be liable for lost revenue, business interruption, or indirect operational losses arising from use of the platform.</p>
+    </section>
+
+  </div>
+  </div>
+
+  <footer>
+    <h3><span class="lbl-pt">Entre em contato</span><span class="lbl-en" style="display:none">Contact Details</span></h3>
+    <p style="font-size:12.5px;">
+      <span class="lbl-pt">Dúvidas sobre privacidade ou solicitações de dados:</span>
+      <span class="lbl-en" style="display:none">For any privacy questions or data requests:</span>
+    </p>
+    <div class="contact-grid">
+      <div class="contact-item">Nespoli Digital</div>
+      <a class="contact-item" href="mailto:nespolidigital@gmail.com">nespolidigital@gmail.com</a>
+      <div class="contact-item">Play Store: Nespoli Digital</div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang;
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b === btn));
+      document.querySelectorAll('.lang-block').forEach(el => {
+        el.classList.toggle('active', el.dataset.langContent === lang);
+      });
+      document.querySelectorAll('.lbl-pt').forEach(el => el.style.display = lang === 'pt' ? '' : 'none');
+      document.querySelectorAll('.lbl-en').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+      document.documentElement.lang = lang;
+    });
+  });
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tab = btn.dataset.tab;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b === btn));
+      document.querySelectorAll('.tab-block').forEach(el => {
+        el.classList.toggle('active', el.dataset.tabContent === tab);
+      });
+    });
+  });
+</script>
+</body>
+</html>
