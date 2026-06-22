@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BandFlow — Abrindo convite...</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #09090b;
+      font-family: Inter, system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 24px;
+      max-width: 420px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .bar {
+      height: 4px;
+      background: linear-gradient(90deg, #3b82f6, #6366f1, #a855f7);
+    }
+
+    .content {
+      padding: 40px 32px 36px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      font-style: italic;
+      color: #fff;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+      text-decoration: underline;
+      text-decoration-color: #2563eb;
+      text-underline-offset: 4px;
+      margin-bottom: 6px;
+    }
+
+    .tagline {
+      font-size: 10px;
+      color: #52525b;
+      font-family: monospace;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 36px;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid #27272a;
+      border-top-color: #3b82f6;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 24px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .status {
+      font-size: 14px;
+      color: #a1a1aa;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .status strong {
+      color: #fff;
+    }
+
+    .hint {
+      font-size: 11px;
+      color: #52525b;
+      line-height: 1.6;
+      margin-top: 24px;
+      font-family: monospace;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 14px 28px;
+      background: #2563eb;
+      color: #fff;
+      font-weight: 700;
+      font-size: 12px;
+      text-decoration: none;
+      border-radius: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .error-icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="bar"></div>
+    <div class="content">
+      <div class="logo">BandFlow</div>
+      <div class="tagline">Professional Band Platform</div>
+
+      <!-- Estado: carregando / abrindo app -->
+      <div id="state-loading">
+        <div class="spinner"></div>
+        <p class="status">Abrindo o <strong>BandFlow</strong>...</p>
+        <p class="hint">Aguarde enquanto redirecionamos você para o app.</p>
+        <button class="btn" id="btn-retry" style="display:none;" onclick="tryOpen()">
+          Tentar novamente
+        </button>
+      </div>
+
+      <!-- Estado: app não abriu, mostrar botão manual -->
+      <div id="state-fallback" class="hidden">
+        <div class="error-icon">📱</div>
+        <p class="status">O app não abriu automaticamente.</p>
+        <p class="hint">Toque no botão abaixo ou certifique-se de que o BandFlow está instalado.</p>
+        <a class="btn" id="btn-open" href="#">Abrir no BandFlow</a>
+        <p class="hint" style="margin-top:16px;">
+          Não tem o app? Baixe na Play Store e tente novamente.
+        </p>
+      </div>
+
+      <!-- Estado: token inválido -->
+      <div id="state-error" class="hidden">
+        <div class="error-icon">⚠️</div>
+        <p class="status">Link de convite <strong>inválido</strong>.</p>
+        <p class="hint">Este link pode ter expirado ou já foi utilizado.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('token');
+
+    const stateLoading  = document.getElementById('state-loading');
+    const stateFallback = document.getElementById('state-fallback');
+    const stateError    = document.getElementById('state-error');
+    const btnRetry      = document.getElementById('btn-retry');
+    const btnOpen       = document.getElementById('btn-open');
+
+    function show(el) {
+      [stateLoading, stateFallback, stateError].forEach(e => e.classList.add('hidden'));
+      el.classList.remove('hidden');
+    }
+
+    function tryOpen() {
+      if (!token) { show(stateError); return; }
+
+      const deepLink = 'bandflow://invite/' + token;
+      btnOpen.href = deepLink;
+
+      // Tenta abrir o app
+      window.location.href = deepLink;
+
+      // Se depois de 2s ainda estiver na página, mostra botão manual
+      setTimeout(() => {
+        btnRetry.style.display = 'inline-block';
+        show(stateFallback);
+      }, 2000);
+    }
+
+    if (!token) {
+      show(stateError);
+    } else {
+      tryOpen();
+    }
+  </script>
+</body>
+</html>
