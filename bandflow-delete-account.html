@@ -1,157 +1,207 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BandFlow — Exclusão de Conta e Dados</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BandFlow — Excluir conta</title>
+  <meta name="description" content="Como excluir sua conta do BandFlow e quais dados são apagados." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,900;1,900&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #09090b;
+      --card: #18181b;
+      --line: #27272a;
+      --text: #e4e4e7;
+      --muted: #a1a1aa;
+      --accent: #3b82f6;
+    }
+    * { box-sizing: border-box; }
     body {
-      background: #09090b;
-      color: #f0f0f0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      line-height: 1.7;
-      padding: 2rem 1.5rem;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      font-size: 16px;
+    }
+    main {
       max-width: 680px;
       margin: 0 auto;
+      padding: 56px 24px 80px;
     }
-    .logo {
-      font-size: 24px;
+    .brand {
       font-weight: 900;
       font-style: italic;
       text-transform: uppercase;
-      letter-spacing: -1px;
+      letter-spacing: -0.03em;
+      font-size: 2.4rem;
+      margin: 0;
       text-decoration: underline;
-      text-decoration-color: #2563eb;
-      text-underline-offset: 4px;
-      margin-bottom: 2.5rem;
-      display: block;
+      text-decoration-color: var(--accent);
+      text-underline-offset: 6px;
+      text-decoration-thickness: 4px;
+    }
+    .lang {
+      display: flex;
+      gap: 8px;
+      margin: 20px 0 36px;
+    }
+    .lang button {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font: inherit;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .lang button[aria-pressed="true"] {
+      color: #fff;
+      border-color: var(--accent);
     }
     h1 {
-      font-size: 1.75rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.5rem;
-    }
-    .subtitle {
-      color: #888;
-      font-size: 14px;
-      margin-bottom: 2.5rem;
-      padding-bottom: 2.5rem;
-      border-bottom: 1px solid #222;
+      font-size: 1.6rem;
+      line-height: 1.25;
+      margin: 0 0 12px;
+      color: #fff;
     }
     h2 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin: 2rem 0 0.75rem;
-      color: #f0f0f0;
+      font-size: 1.1rem;
+      margin: 36px 0 10px;
+      color: #fff;
     }
-    p {
-      font-size: 14px;
-      color: #aaa;
-      margin-bottom: 1rem;
+    p, li { color: var(--text); }
+    .muted { color: var(--muted); }
+    ol, ul { padding-left: 1.3em; }
+    li { margin: 6px 0; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px 22px;
+      margin: 16px 0;
     }
-    ol, ul {
-      font-size: 14px;
-      color: #aaa;
-      padding-left: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    li { margin-bottom: 0.5rem; }
-    .highlight {
-      background: #18181b;
-      border: 1px solid #27272a;
-      border-radius: 12px;
-      padding: 1.25rem 1.5rem;
-      margin: 1.5rem 0;
-    }
-    .highlight p { margin: 0; color: #f0f0f0; }
-    .email-link {
-      color: #3b82f6;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .email-link:hover { text-decoration: underline; }
-    .tag {
-      display: inline-block;
-      background: #1a1a2e;
-      color: #4f8ef7;
-      font-size: 11px;
-      font-weight: 600;
-      padding: 3px 10px;
-      border-radius: 100px;
-      border: 1px solid #2a2a4e;
-      margin-right: 6px;
-      margin-bottom: 6px;
-    }
-    .tag.red { background: #2a1a1a; color: #f87171; border-color: #4e2a2a; }
-    .tag.green { background: #1a2a1a; color: #4ade80; border-color: #2a4e2a; }
+    a { color: var(--accent); }
     footer {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid #222;
-      font-size: 12px;
-      color: #555;
+      margin-top: 56px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.85rem;
     }
+    [data-lang] { display: none; }
+    [data-lang].active { display: block; }
   </style>
 </head>
 <body>
+  <main>
+    <p class="brand">BandFlow</p>
 
-  <span class="logo">BandFlow</span>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-set-lang="pt" aria-pressed="true">Português</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">English</button>
+    </div>
 
-  <h1>Exclusão de Conta e Dados</h1>
-  <p class="subtitle">Nespoli Digital · nespolidigital@gmail.com · Última atualização: Junho 2026</p>
+    <!-- PORTUGUÊS -->
+    <section data-lang="pt" class="active" lang="pt-BR">
+      <h1>Como excluir sua conta do BandFlow</h1>
+      <p class="muted">BandFlow, app de gestão de bandas publicado pela Nespoli Digital.</p>
 
-  <p>O BandFlow respeita sua privacidade e oferece total controle sobre sua conta e dados pessoais. Você pode solicitar a exclusão completa da sua conta e de todos os dados associados a qualquer momento.</p>
+      <h2>Pelo aplicativo</h2>
+      <div class="card">
+        <ol>
+          <li>Abra o BandFlow e entre na sua conta.</li>
+          <li>Toque em <strong>Configurações</strong>.</li>
+          <li>Na seção de privacidade, toque em <strong>Excluir Cadastro e Anonimizar</strong> e confirme.</li>
+        </ol>
+      </div>
 
-  <h2>Como excluir sua conta</h2>
+      <h2>Sem acesso ao aplicativo</h2>
+      <p>
+        Envie um e-mail para <a href="mailto:nespolidigital@gmail.com?subject=Excluir%20conta%20BandFlow">nespolidigital@gmail.com</a>
+        com o assunto <strong>Excluir conta BandFlow</strong>, a partir do mesmo e-mail usado no cadastro.
+        A exclusão é feita em até 30 dias e você recebe uma confirmação por e-mail.
+      </p>
 
-  <p>Você tem duas formas de excluir sua conta:</p>
+      <h2>O que é apagado</h2>
+      <ul>
+        <li>Sua conta de acesso (e-mail e senha), seu perfil e suas preferências.</li>
+        <li>As bandas das quais você é dono, com todos os dados delas: agenda, repertório, músicas, financeiro, membros, convites, fotos, documentos e arquivos.</li>
+        <li>Seus vínculos com bandas de outras pessoas: você sai da lista de integrantes e seus convites pendentes são cancelados.</li>
+      </ul>
 
-  <h2>Opção 1 — Pelo próprio app</h2>
-  <ol>
-    <li>Abra o BandFlow e faça login na sua conta</li>
-    <li>Acesse <strong>Configurações</strong> no menu principal</li>
-    <li>Role até o final da página e toque em <strong>"Excluir minha conta"</strong></li>
-    <li>Confirme a exclusão na caixa de diálogo</li>
-  </ol>
-  <p>A exclusão é processada imediatamente e é irreversível.</p>
+      <h2>O que pode permanecer</h2>
+      <ul>
+        <li>Nas bandas de outras pessoas, um registro de que você foi removido pode continuar no histórico interno da banda.</li>
+        <li>Registros de pagamento de assinaturas são mantidos pelo Google Play e pelo processador de pagamentos, conforme as políticas deles e as obrigações legais.</li>
+      </ul>
+    </section>
 
-  <h2>Opção 2 — Por email</h2>
-  <div class="highlight">
-    <p>Envie um email para <a href="mailto:nespolidigital@gmail.com" class="email-link">nespolidigital@gmail.com</a> com o assunto <strong>"Exclusão de conta BandFlow"</strong> informando o email cadastrado na sua conta. Processaremos sua solicitação em até 7 dias úteis.</p>
-  </div>
+    <!-- ENGLISH -->
+    <section data-lang="en" lang="en">
+      <h1>How to delete your BandFlow account</h1>
+      <p class="muted">BandFlow, a band management app published by Nespoli Digital.</p>
 
-  <h2>O que é excluído</h2>
-  <p>Ao excluir sua conta, os seguintes dados são permanentemente removidos:</p>
-  <div>
-    <span class="tag red">Conta de autenticação</span>
-    <span class="tag red">Dados de perfil</span>
-    <span class="tag red">Dados da banda</span>
-    <span class="tag red">Membros e convites</span>
-    <span class="tag red">Agenda e eventos</span>
-    <span class="tag red">Repertório e músicas</span>
-    <span class="tag red">Transações financeiras</span>
-    <span class="tag red">Fotos e vídeos</span>
-    <span class="tag red">Configurações</span>
-  </div>
+      <h2>In the app</h2>
+      <div class="card">
+        <ol>
+          <li>Open BandFlow and sign in.</li>
+          <li>Tap <strong>Settings</strong>.</li>
+          <li>In the privacy section, tap <strong>Delete and Anonymize Account</strong> and confirm.</li>
+        </ol>
+      </div>
 
-  <h2>O que pode ser mantido</h2>
-  <p>Alguns dados podem ser mantidos por obrigações legais ou técnicas:</p>
-  <div>
-    <span class="tag green">Logs de segurança — até 90 dias</span>
-    <span class="tag green">Registros de transações financeiras — conforme exigido por lei</span>
-  </div>
+      <h2>Without access to the app</h2>
+      <p>
+        Send an email to <a href="mailto:nespolidigital@gmail.com?subject=Delete%20BandFlow%20account">nespolidigital@gmail.com</a>
+        with the subject <strong>Delete BandFlow account</strong>, from the same email address you signed up with.
+        Your account is deleted within 30 days and you receive a confirmation by email.
+      </p>
 
-  <h2>Dados de outros membros</h2>
-  <p>Se você é dono de uma banda, a exclusão da sua conta remove a banda e todos os dados associados. Os outros membros perdem o acesso. Recomendamos transferir a propriedade da banda antes de excluir sua conta.</p>
+      <h2>What is deleted</h2>
+      <ul>
+        <li>Your login (email and password), your profile and your preferences.</li>
+        <li>Bands you own, with all their data: schedule, setlists, songs, finances, members, invites, photos, documents and files.</li>
+        <li>Your links to other people's bands: you are removed from their member list and your pending invites are cancelled.</li>
+      </ul>
 
-  <h2>Assinaturas ativas</h2>
-  <p>A exclusão da conta não cancela automaticamente assinaturas ativas na Google Play Store. Para evitar cobranças futuras, cancele sua assinatura na Play Store antes de excluir a conta.</p>
+      <h2>What may be kept</h2>
+      <ul>
+        <li>In other people's bands, a record that you were removed may remain in the band's internal history.</li>
+        <li>Subscription payment records are kept by Google Play and the payment processor, according to their policies and legal obligations.</li>
+      </ul>
+    </section>
 
-  <footer>
-    © 2026 Nespoli Digital · <a href="bandflow-privacy.html" style="color:#555;">Política de Privacidade</a>
-  </footer>
+    <footer>
+      Nespoli Digital · <a href="https://nespolidigital.github.io/privacy-policies/bandflow-privacy.html">Política de privacidade / Privacy policy</a>
+    </footer>
+  </main>
 
+  <script>
+    (function () {
+      var buttons = document.querySelectorAll('[data-set-lang]');
+      var sections = document.querySelectorAll('[data-lang]');
+
+      function setLang(lang) {
+        sections.forEach(function (s) {
+          s.classList.toggle('active', s.getAttribute('data-lang') === lang);
+        });
+        buttons.forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b.getAttribute('data-set-lang') === lang));
+        });
+        document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+      }
+
+      buttons.forEach(function (b) {
+        b.addEventListener('click', function () { setLang(b.getAttribute('data-set-lang')); });
+      });
+
+      var browserLang = (navigator.language || 'pt').toLowerCase();
+      setLang(browserLang.indexOf('pt') === 0 ? 'pt' : 'en');
+    })();
+  </script>
 </body>
 </html>
